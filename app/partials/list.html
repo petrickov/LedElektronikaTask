@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="text-muted">Korisnici</span>
+                <a class="btn btn-default btn-xs pull-right" ng-href="#/new/step1">Novi korisnik</a>
+            </div>
+            <div class="panel-body no-padding">
+                
+                <table class="table table-bordered no-margin" ng-show="list.length">
+                    <thead> 
+                        <tr> 
+                            <th>Ime</th>
+                            <th>Prezime</th>
+                            <th>E-mail</th> 
+                            <th>Telefon</th> 
+                            <th>Marka automobila</th> 
+                            <th>Model automobila</th> 
+                            <th></th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in list">
+                            <td>{{item.name}}</td>
+                            <td>{{item.surname}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.phone | phoneNum }}</td>
+                            <td>{{item.brand.brand}}</td>
+                            <td>{{item.model.name}}</td>
+                            <td class="text-center">
+                                <i class="fa fa-trash text-muted trash-icon" role="button" ng-click="deleteItem($index)"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                    
+                    <div class="alert alert-info no-margin no-border-radius" role="alert" ng-hide="list.length">
+                        Popis je prazan.
+                    </div>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

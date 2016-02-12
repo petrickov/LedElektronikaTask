@@ -1,0 +1,52 @@
+ <div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="text-muted">Unos novog korisnika</span>
+                <a class="btn btn-default btn-xs pull-right" ng-href="#/">Popis</a>
+            </div>
+            
+            <form name="formStep1" ng-submit="submitStep1(formStep1.$valid)" novalidate> 
+            <div class="panel-body">
+                <ul class="wizard-steps">
+                    <li class="active">
+                        <span class="step">1</span>
+                        <span class="title">Osnovni podaci</span>
+                    </li>
+                    <li data-target="#step2">
+                        <span class="step">2</span>
+                        <span class="title">Automobil</span>
+                    </li>
+                </ul>
+                <hr/>
+                    <div class="col-sm-4">
+                        <div class="form-group" ng-class="{true: 'has-error'}[submitted && formStep1.name.$invalid]"> 
+                            <label class="text-muted">Ime</label> 
+                            <input type="text" name="name" class="form-control input-sm" ng-model="newData.name" required/>
+                            <p ng-show="submitted && formStep1.name.$invalid" class="help-block">Ime je obavezno.</p>
+                        </div> 
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group" ng-class="{true: 'has-error'}[submitted && formStep1.surname.$invalid]">
+                            <label class="text-muted">Prezime</label> 
+                            <input type="text" name="surname" class="form-control input-sm" ng-model="newData.surname" required/>
+                            <p ng-show="submitted && formStep1.surname.$invalid" class="help-block">Prezime je obavezno.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group" ng-class="{true: 'has-error'}[submitted && formStep1.email.$invalid]">
+                            <label class="text-muted">E-mail</label> 
+                            <input type="email" name="email" class="form-control input-sm" ng-model="newData.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required/>
+                            <p ng-show="submitted && formStep1.email.$invalid" class="help-block">Ispravna e-mail adresa je obavezna.</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="panel-footer clearfix">
+                <button type="submit" class="btn btn-xs btn-success pull-right" ng-click="submitted=true">Dalje <i class="fa fa-arrow-right"></i></button>
+            </div>
+            </form>
+                
+        </div>
+    </div>
+</div>
+        

@@ -1,0 +1,103 @@
+ <div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="text-muted">Unos novog korisnika</span>
+                <a class="btn btn-default btn-xs pull-right" ng-href="#/">Popis</a>
+            </div>
+            
+            <form name="formStep2" ng-submit="submitStep2(formStep2.$valid)" novalidate> 
+            <div class="panel-body">
+                <ul class="wizard-steps">
+                    <li>
+                        <span class="step"><i class="fa fa-check step-success"></i></span>
+                        <span class="title">Osnovni podaci</span>
+                    </li>
+                    <li class="active">
+                        <span class="step">2</span>
+                        <span class="title">Automobil</span>
+                    </li>
+                </ul>
+                <hr/>
+                    <div class="col-sm-4">
+                        <div class="form-group" ng-class="{true: 'has-error'}[submitted && formStep2.brand.$invalid]"> 
+                            <label class="text-muted">Marka automobila</label>
+                            <select name="brand" class="form-control input-sm" ng-model="newData.brand" ng-options="b.brand for b in cars track by b.value" required ></select>
+                            <p ng-show="submitted && formStep2.brand.$invalid" class="help-block">Marka je obavezna.</p>
+                            
+                        </div> 
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group" ng-class="{true: 'has-error'}[submitted && formStep2.model.$invalid]">
+                            <label class="text-muted">Model automobila</label>
+                            <select name="model" class="form-control input-sm" ng-model="newData.model" ng-options="m.name for m in newData.brand.models track by m.value" required ></select>
+                            <p ng-show="submitted && formStep2.model.$invalid" class="help-block">Model je obavezan.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group" ng-class="{true: 'has-error'}[submitted && formStep2.phone.$invalid]">
+                            <label for="phone" class="text-muted">Mobitel</label> 
+                            <input type="text" name="phone" class="form-control input-sm" ng-model="newData.phone" required ui-mask="999/999-9999">
+                            <p ng-show="submitted && formStep2.phone.$invalid" class="help-block">Broj mobitela je obavezan.</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="panel-footer clearfix">
+                <a ng-href="#/new/step1" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i> Nazad</a>
+                <button type="submit" class="btn btn-xs btn-success pull-right" ng-click="submitted=true">Dalje <i class="fa fa-arrow-right"></i></button>
+            </div>
+            </form>
+                
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" ng-class="{true: 'show'}[modal]">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="padding:10px;">
+                <button type="button" class="close" data-dismiss="modal" ng-click="modal=false">&times;</button>
+                <h5 class="modal-title">Potvrda unosa</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <table class="table table-condensed table-condensed table-striped table-bordered no-margin">
+                            <tbody>
+                                <tr>
+                                    <th>Ime</th>
+                                    <td>{{newData.name}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Prezime</th>
+                                    <td>{{newData.surname}}</td>
+                                </tr>
+                                <tr>
+                                    <th>E-mail</th>
+                                    <td>{{newData.email}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Marka</th>
+                                    <td>{{newData.brand.brand}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Model</th>
+                                    <td>{{newData.model.name}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Mobitel</th>
+                                    <td>{{newData.phone | phoneNum}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                   </div>
+                </div>
+            </div>
+            <div class="panel-footer clearfix">
+                <button class="btn btn-xs btn-default" ng-click="cancelInsert()">Odustani</button>
+                <button class="btn btn-xs btn-success pull-right" ng-click="confirmInsert()">Spremi</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop in" ng-show="modal"></div>

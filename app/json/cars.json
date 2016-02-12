@@ -1,0 +1,27 @@
+[
+    {
+        "brand": "Alfa Romeo",
+        "value": 1,
+        "models": [{"name": "Alfetta", "value": 1},{"name": "Brera", "value": 2},{"name": "Giulia", "value": 3}]
+    },
+    {
+        "brand": "Caddilac",
+        "value": 2,
+        "models": [{"name": "CTS", "value": 1},{"name": "Eldorado", "value": 2},{"name": "Seville", "value": 3},{"name": "SRX", "value": 4}]
+    },
+    {
+        "brand": "Ford",
+        "value": 3,
+        "models": [{"name": "Escort", "value": 1},{"name": "Escape", "value": 2},{"name": "Fiesta", "value": 3},{"name": "Focus", "value": 4},{"name": "C-Max", "value": 5},{"name": "Galaxy", "value": 6},{"name": "GT", "value": 7},{"name": "Mustang", "value": 8}]
+    },
+    {
+        "brand": "Opel",
+        "value": 4,
+        "models": [{"name": "Astra", "value": 1},{"name": "Corsa", "value": 2},{"name": "Vectra", "value": 3}]
+    },
+    {
+        "brand": "Renault",
+        "value": 5,
+        "models": [{"name": "Clio", "value": 1},{"name": "Laguna", "value": 2},{"name": "Megane", "value": 3},{"name": "Scenic", "value": 4}]
+    }
+]
